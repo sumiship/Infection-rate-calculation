@@ -71,7 +71,7 @@ export default {
       // const newChartData = Object.assign({}, this.chartData);
       // newChartData.datasets[0].data = this.views;
       // console.log(this.chartData);
-      this.chartData = this.views;
+      // this.chartData = this.views;
       this.data.datasets[0].data = JSON.parse(JSON.stringify(this.views));
       this.data.labels = JSON.parse(JSON.stringify(this.make1000arr()));
       this.renderChart(this.data, this.options);

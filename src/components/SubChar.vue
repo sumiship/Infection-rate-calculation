@@ -67,7 +67,7 @@ export default {
     },
     yousei() {
       let youseiView = [];
-      for (let j = 0; j < 1000; j++) {
+      for (let j = 0; j < 10000; j++) {
         let count = 0;
         for (let i = 0; i < this.sample; i++) {
           let judge = false;
@@ -81,7 +81,25 @@ export default {
         }
         youseiView.push(count);
       }
-      this.data.datasets[0].data = JSON.parse(JSON.stringify(youseiView));
+      const classify = this.classifyArr(youseiView);
+      this.data.datasets[0].data = JSON.parse(JSON.stringify(classify[1]));
+      this.data.labels = JSON.parse(JSON.stringify(classify[0]));
+      this.renderChart(this.data, this.options);
+    },
+    classifyArr(arr) {
+      let retArr = [];
+      let labelArr = [];
+      arr.sort();
+      const min = arr[0];
+      const max = arr[arr.length - 1];
+      // console.log(min, max);
+      for (let i = min; i <= max; i++) {
+        labelArr.push(i);
+        let count = arr.filter((item) => item == i).length;
+        retArr.push(count);
+      }
+      // console.log(retArr);
+      return [labelArr, retArr];
     },
   },
   mounted() {
