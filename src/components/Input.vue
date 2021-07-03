@@ -8,15 +8,15 @@
       <p>検査数(人)</p>
       <input type="number" v-model="values.sample" />
     </div>
-    <div class="in">
+    <div class="in point">
       <p @click="selectVariable(1)" :class="selectClass(1)">感度(%)</p>
       <input type="number" v-model="values.sensitivity" min="0" max="100" />
     </div>
-    <div class="in">
+    <div class="in point">
       <p @click="selectVariable(2)" :class="selectClass(2)">特異度(%)</p>
       <input type="number" v-model="values.specificity" min="0" max="100" />
     </div>
-    <div class="in">
+    <div class="in point">
       <p @click="selectVariable(3)" :class="selectClass(3)">罹患率(%)</p>
       <input type="number" v-model="values.morbidity" min="0" max="100" />
     </div>
@@ -65,7 +65,11 @@ export default class Input extends Vue {
 .in {
   width: 180px;
 }
-.select {
+.in.point p {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+.in.point p.select {
   background-color: coral;
 }
 input {

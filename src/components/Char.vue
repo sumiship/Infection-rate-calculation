@@ -36,6 +36,8 @@ export default {
               ticks: {
                 beginAtZero: true,
                 stepSize: 10,
+                max: 100,
+                min: 0,
               },
             },
           ],
