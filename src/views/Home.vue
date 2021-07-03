@@ -20,7 +20,7 @@ export default class Home extends Vue {
   private values = {
     positive: 1000,
     sample: 2000,
-    sensitivity: 70,
+    sensitivity: 60,
     specificity: 99,
     morbidity: 1,
     select: 3,
