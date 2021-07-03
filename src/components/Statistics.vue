@@ -14,6 +14,15 @@
     </table>
 
     <Chart
+      class="chart"
+      :sample="values.sample"
+      :morbidity="values.morbidity"
+      :sensitivity="values.sensitivity"
+      :specificity="values.specificity"
+      :select="values.select"
+    />
+    <SubChart
+      class="chart"
       :sample="values.sample"
       :morbidity="values.morbidity"
       :sensitivity="values.sensitivity"
@@ -25,6 +34,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import Chart from "@/components/Char.vue";
+import SubChart from "@/components/SubChar.vue";
 
 interface IPropValues {
   positive: number;
@@ -38,6 +48,7 @@ interface IPropValues {
 @Component({
   components: {
     Chart,
+    SubChart,
   },
 })
 export default class Input extends Vue {
@@ -61,3 +72,10 @@ export default class Input extends Vue {
   }
 }
 </script>
+<style scoped>
+.chart {
+  max-width: 700px;
+  width: 90%;
+  margin: 0 auto;
+}
+</style>

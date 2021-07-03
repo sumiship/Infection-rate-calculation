@@ -18,14 +18,6 @@ export default {
             type: "line",
             lineTension: 0.3,
           },
-          {
-            label: "yousei",
-            data: [10, 50, 20, 30, 30, 40],
-            borderColor: "#CFD8DC",
-            fill: false,
-            type: "line",
-            lineTension: 0.3,
-          },
         ],
       },
       options: {
@@ -109,22 +101,6 @@ export default {
           let mo = ((i / 1000) * this.sensitivity) / 100;
           let nomo = (1 - i / 1000) * (1 - this.specificity / 100);
           this.views.push(this.rateMorbidityInPositive(mo, nomo));
-        }
-      }
-    },
-    yousei() {
-      let youseiView = [];
-      for (let j = 0; j < 1000; j++) {
-        let count = 0;
-        for (let i = 0; i < this.sample; i++) {
-          let judge = false;
-          if (Math.random() * 100 < this.morbidity) judge = true;
-          if (judge) {
-            if (Math.random() * 100 >= this.sensitivity) judge = false;
-          } else {
-            if (Math.random() * 100 >= this.specificity) judge = true;
-          }
-          if (judge) count++;
         }
       }
     },
